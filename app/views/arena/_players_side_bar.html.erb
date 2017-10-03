@@ -1,0 +1,19 @@
+<div class="player-sidebar <%= position %>" >
+  <div class='toggle-on-click'>
+    <h3><%= position == :left ? "player 1" : "player 2"%></h3>
+    <div class='toggled-click-content'>
+      <% @characters.each do |character|%>
+        <div>
+          <div class='lvl'> lvl <%= character.lvl %> </div>
+          <div class='img-container <%= character.id %> toggle-on-hover' onclick="javascript:arena.choosePlayer('<%= character.id %>', '<%= position.to_s %>');">
+            <div class='player-name toggled-hover-content'>
+              <i class='fa fa-star'></i> <%= character.name %> <i class='fa fa-star'></i>
+            </div>
+            <div class='layout'></div>
+            <%= image_tag character.profile_pic %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

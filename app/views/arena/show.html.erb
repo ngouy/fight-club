@@ -1,0 +1,12 @@
+<div class='arena'>
+  <%= render partial: 'players_side_bar', locals: { position: :left } %>
+  <%= render partial: 'vs_button' %>
+  <%= render partial: 'ring'%>
+  <%= render partial: 'players_side_bar', locals: { position: :right } %>
+  <%= render partial: 'logger' %>
+</div>
+<script type="text/javascript">
+  arena.init({
+    id: "<%= @arena.id %>"
+  });
+</script>

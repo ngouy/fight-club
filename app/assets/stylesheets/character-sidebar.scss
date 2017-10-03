@@ -1,0 +1,112 @@
+@import "font-awesome";
+@import "lib/colors";
+
+body {
+  overflow-x: hidden;
+}
+
+.player-sidebar {
+  position: absolute;
+  top: 0px;
+  z-index: 2;
+  .lvl {
+    position: absolute;
+    top: -17px;
+    left: 10px;
+  }
+  h3 {
+    text-align: center;
+    cursor: pointer;
+  }
+  .toggled-click-content > div {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+    margin-bottom: 15px;
+    width: 80px;
+    height: 80px;
+  }
+  .img-container {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    background-color: #292F36;
+    transition: 0.5s;
+    &.selected {
+      pointer-events: none;
+      cursor: not-allowed !important;
+    }
+    .layout {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: 0;
+    }
+    &.selected-1 .layout {
+      background: rgba(78,205,196, 0.5);
+    }
+    &.selected-2 .layout {
+      background: rgba(255,107,107, 0.5);
+    }
+    img {
+      height: 100%;
+    }
+  }
+  .toggled-click-content {
+    max-width: 193px;
+    position: relative;
+    transition: 1s;
+    background-color: #ffffff;
+  }
+  .toggled-hover-content {
+    position: fixed;
+    top: 12px;
+    font-size: 25px;
+    white-space:nowrap;
+    &:not(.show) { display: none; }
+  }
+  &.left {
+    left: 0;
+    .toggled-hover-content {
+      left: 135px;
+      color: $color-player-1;
+    }
+    .img-container {
+      &:hover:not(.selected) {
+        background-color: $color-player-1;
+        border-color: $color-player-1;
+      }
+    }
+    .toggled-click-content {
+      left: 0;
+      border-bottom-right-radius: 10px;
+      &:not(.show) { left: -300px; }
+    }
+  }
+
+  &.right {
+    right: 0;
+    .toggled-hover-content {
+      right: 135px;
+      color: $color-player-2;
+    }
+    .img-container {
+      &:hover:not(.selected) {
+        background-color: $color-player-2;
+        border-color: $color-player-2;
+      }
+    }
+    .toggled-click-content {
+      right: 0;
+      border-bottom-left-radius: 10px;
+      &:not(.show) { right: -300px; }
+    }
+  }
+}

@@ -1,0 +1,2 @@
+class Helmet < Gear
+end
